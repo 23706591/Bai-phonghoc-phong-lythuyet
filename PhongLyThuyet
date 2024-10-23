@@ -1,0 +1,36 @@
+package nguyenHuuTien_23706591;
+
+public class PhongLyThuyet extends PhongHoc{
+
+	@Override
+	public boolean datChuan() {
+		if(isMayChieu()&& duAnhSang())
+		{
+			return true;
+		}else {
+		return false;
+		}
+	}
+	
+	private boolean mayChieu;
+	public boolean isMayChieu() {
+		return mayChieu;
+	}
+	public void setMayChieu(boolean mayChieu) {
+		this.mayChieu = mayChieu;
+	}
+	public PhongLyThuyet(String maPhong, String dayNha, double dienTich, int so, boolean mayChieu) throws Exception {
+		super(maPhong, dayNha, dienTich, so);
+		this.mayChieu = mayChieu;
+	}
+	public PhongLyThuyet(String maPhong, String dayNha, double dienTich, int so) throws Exception {
+		super(maPhong, dayNha, dienTich, so);
+	}
+	@Override
+	public String toString() {
+		String datChuan = (datChuan())?"Dat chuan":"Khong dat chuan";
+		String mayChieu = (isMayChieu())?"Co may chieu":"Khong co may chieu";
+		return super.toString() + String.format("%10s|%10s",datChuan, mayChieu);
+	}
+	
+}
